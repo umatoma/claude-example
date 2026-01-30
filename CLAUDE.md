@@ -56,3 +56,17 @@ coding-standardsスキルで定義されているコーディング規約・ベ�
 | backend-patterns | バックエンドアーキテクチャパターン |
 | frontend-pattern | フロントエンド開発パターン |
 | explain-code | コードの説明・図解 |
+| sdd-principles | SDD原則・プロジェクト憲法・フェーズゲート |
+
+## SDD ワークフロー
+
+仕様駆動開発（SDD）: 仕様を真実の源泉とし、仕様 → 計画 → 実装のパイプラインで開発する。
+
+**コマンド**:
+1. `/x-specify` - 仕様書を作成（Part 1）、ユーザー承認を得る
+2. `/x-plan` - 仕様に基づく実装計画を追記（Part 2）、ユーザー承認を得る
+3. `/x-implement` - 計画に基づいてステップバイステップで実装
+
+**計画書**: `.steering/[YYYYMMDD]-[name].md` に仕様+計画を統合保存。テンプレートは `.steering/templates/sdd-plan.md`。
+
+**プロジェクト憲法**: `sdd-principles` スキルに定義。仕様・計画・実装の全フェーズで遵守する不変原則。
