@@ -4,7 +4,7 @@ description: 計画書に基づいてステップバイステップで実装を�
 
 # Implement コマンド
 
-このコマンドは **implementer** エージェントを呼び出し、計画書に基づいて実装を進めます。
+このコマンドは **y-implementer** エージェントを呼び出し、計画書に基づいて実装を進めます。
 
 ## このコマンドの機能
 
@@ -15,8 +15,8 @@ description: 計画書に基づいてステップバイステップで実装を�
 
 ## 使用タイミング
 
-以下の場合に `/do-implement` を使用してください：
-- `/do-plan` で計画書を作成した後
+以下の場合に `/y-implement` を使用してください：
+- `/y-plan` で計画書を作成した後
 - 承認済みの計画書がある場合
 - 中断した実装を再開する場合
 
@@ -27,7 +27,7 @@ description: 計画書に基づいてステップバイステップで実装を�
 
 ## 動作の仕組み
 
-implementerエージェントは以下を行います：
+y-implementerエージェントは以下を行います：
 
 1. **計画書を読み込み**、未完了のステップを特定
 2. **各ステップを順番に実装**
@@ -40,9 +40,9 @@ implementerエージェントは以下を行います：
 ### 基本的な使用
 
 ```
-ユーザー: /do-implement
+ユーザー: /y-implement
 
-エージェント (implementer):
+エージェント (y-implementer):
 計画書を読み込みました: .steering/20240120-realtime-notification.md
 
 ## 実装開始
@@ -65,9 +65,9 @@ implementerエージェントは以下を行います：
 ### 特定の計画書を指定
 
 ```
-ユーザー: /do-implement 20240115-auth-refactor.md
+ユーザー: /y-implement 20240115-auth-refactor.md
 
-エージェント (implementer):
+エージェント (y-implementer):
 計画書を読み込みました: .steering/20240115-auth-refactor.md
 ...
 ```
@@ -75,9 +75,9 @@ implementerエージェントは以下を行います：
 ### 特定のフェーズから開始
 
 ```
-ユーザー: /do-implement フェーズ2から
+ユーザー: /y-implement フェーズ2から
 
-エージェント (implementer):
+エージェント (y-implementer):
 フェーズ1はスキップし、フェーズ2から開始します。
 
 ### フェーズ2: 通知サービス
@@ -143,36 +143,32 @@ BullMQパッケージがpackage.jsonに存在しません
 - ...
 
 ### 推奨される次のステップ
-1. `/code-review` でレビューを実行
-2. `npm test` でテストを実行
-3. 動作確認
+1. `npm test` でテストを実行
+2. 動作確認
 ```
 
 ## ワークフロー例
 
 ```
-/do-plan 新機能Xを実装したい
+/y-plan 新機能Xを実装したい
   ↓
 計画書のレビュー・承認
   ↓
-/do-implement
+/y-implement
   ↓
 ステップバイステップで実装
-  ↓
-/code-review
   ↓
 git commit
 ```
 
 ## 他のコマンドとの連携
 
-- `/do-plan` - 実装前に計画を立てる
-- `/code-review` - 実装後にコードレビュー
+- `/y-plan` - 実装前に計画を立てる
 
 ## 関連エージェント
 
-このコマンドは以下の場所にある `implementer` エージェントを呼び出します：
-`.claude/agents/implementer.md`
+このコマンドは以下の場所にある `y-implementer` エージェントを呼び出します：
+`.claude/agents/y-implementer.md`
 
 ## 中断と再開
 
@@ -199,13 +195,13 @@ git commit
 ユーザー: 一旦止めて
 エージェント: 了解しました。進捗を計画書に保存しました。
              現在の進捗: フェーズ2 > ステップ2.2 完了
-             再開時は `/do-implement` を実行してください。
+             再開時は `/y-implement` を実行してください。
 ```
 
 ### 再開する場合
 
 ```
-ユーザー: /do-implement
+ユーザー: /y-implement
 
 エージェント:
 計画書を読み込みました: .steering/20240120-realtime-notification.md
@@ -222,7 +218,7 @@ git commit
 
 ## 注意事項
 
-- **計画書がない場合**: 先に `/do-plan` を実行してください
+- **計画書がない場合**: 先に `/y-plan` を実行してください
 - **計画書が古い場合**: 新しい計画書を作成するか、既存のものを更新してください
-- **途中で止めた場合**: 再度 `/do-implement` を実行すると、未完了のステップから再開します
+- **途中で止めた場合**: 再度 `/y-implement` を実行すると、未完了のステップから再開します
 - **進捗が記録されない場合**: 計画書のフォーマットが正しいか確認してください

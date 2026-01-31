@@ -1,5 +1,5 @@
 ---
-name: implementer
+name: y-implementer
 description: 計画書に基づいて実装を進めるスペシャリスト。`.steering/`ディレクトリの計画書を読み込み、フェーズごとに確実に実装を進める。
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---
@@ -206,7 +206,6 @@ ls -la .steering/
 - [x] 基準3
 
 ### 次のステップ（推奨）
-- `/code-review` でコードレビューを実行
 - テストを実行して動作確認
 - 本番デプロイ前のチェックリスト確認
 ```
