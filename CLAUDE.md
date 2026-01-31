@@ -43,4 +43,4 @@ cd backend && npm run typecheck # 型チェック（tsc --noEmit）
 ## ワークフロー
 
 - SDD（スペック駆動開発）の計画文書は `.steering/` に配置する
-- ワークフローコマンド: `/x-specify`（仕様作成）→ `/x-plan`（計画作成）→ `/x-implement`（実装）
+- ワークフローコマンド: `/sdd-specify`（仕様作成）→ `/sdd-plan`（計画作成）→ `/sdd-implement`（実装）
