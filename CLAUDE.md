@@ -4,32 +4,43 @@
 
 ## プロジェクト概要
 
-モノレポ構成のNode.js/Express.jsプロジェクト。
+モノレポ構成のTypeScript/Express 5プロジェクト。テンプレートエンジンにEJSを使用。
 
 ## プロジェクト構造
 
 ```
 project-root/
-├── backend/          # バックエンドアプリケーション
-│   ├── package.json
-│   └── src/
-│       ├── routes/   # ルート定義
-│       ├── constants.js
-│       └── app.js    # エントリーポイント
-└── frontend/         # フロントエンドアプリケーション（未実装）
+├── backend/              # バックエンドアプリケーション
+│   ├── src/
+│   │   ├── routes/       # Express Routerによるルート定義
+│   │   └── views/        # EJSテンプレート
+│   ├── vitest.config.ts
+│   ├── tsconfig.json
+│   └── package.json
+├── frontend/             # フロントエンド（未実装）
+├── .claude/
+│   ├── rules/            # コーディング・テスト・バックエンド規約
+│   ├── commands/         # SDDワークフローコマンド
+│   ├── agents/           # 計画・実装エージェント定義
+│   └── skills/           # SDDスキル定義
+└── .steering/            # SDD計画文書
 ```
 
 ## 開発コマンド
 
 ```bash
-# バックエンド
-cd backend && npm install   # 依存関係インストール
-cd backend && npm start     # 本番モード起動
-cd backend && npm run dev   # 開発モード起動（ホットリロード）
+cd backend && npm install       # 依存関係インストール
+cd backend && npm start         # 本番モード起動
+cd backend && npm run dev       # 開発モード起動（ホットリロード）
+cd backend && npm test          # テスト実行（Vitest）
+cd backend && npm run typecheck # 型チェック（tsc --noEmit）
 ```
 
-## CLAUDE.md・Rules のベストプラクティス
+## 規約
 
-- 具体的に書く: 「コードを適切にフォーマットする」ではなく「インデントはスペース2つを使用する」のように記述する
-- 構造化して整理する: 各ルールは箇条書きにし、関連するルールは見出しでグループ化する
-- 定期的に見直す: プロジェクトの進化に合わせてルールを更新し、常に最新の情報を反映する
+コーディング規約・テスト規約・バックエンド規約は `.claude/rules/` に定義されている。
+
+## ワークフロー
+
+- SDD（スペック駆動開発）の計画文書は `.steering/` に配置する
+- ワークフローコマンド: `/x-specify`（仕様作成）→ `/x-plan`（計画作成）→ `/x-implement`（実装）
