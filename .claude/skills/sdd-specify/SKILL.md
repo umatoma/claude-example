@@ -1,8 +1,11 @@
 ---
-description: SDD仕様作成。要件をヒアリングし、仕様書（Part 1）を作成します。ユーザー承認後に /sdd-plan へ進みます。
+name: sdd-specify
+description: SDD仕様作成。要件をヒアリングし、仕様書（Part 1）を作成する。ユーザーが「仕様を作成して」「要件を整理して」「SDDで開発したい」「新機能の仕様を書いて」と言った場合に使用する。
+disable-model-invocation: false
+allowed-tools: Read, Glob, Grep, Write, Edit
 ---
 
-# SDD Specify コマンド
+# SDD Specify スキル
 
 仕様駆動開発（SDD）の最初のステップ。要件を明確化し、仕様書を作成する。
 
@@ -11,7 +14,7 @@ description: SDD仕様作成。要件をヒアリングし、仕様書（Part 1�
 ### ステップ1: 準備
 
 1. `sdd-principles` スキルを読み込み、SDD原則・プロジェクト憲法・フェーズゲートを確認する
-2. `.steering/templates/sdd-plan.md` テンプレートを読み込む
+2. `template.md` テンプレートを読み込む
 3. ユーザーの入力（`$ARGUMENTS`）から要件の概要を把握する
 
 ### ステップ2: 要件ヒアリング
@@ -80,13 +83,12 @@ description: SDD仕様作成。要件をヒアリングし、仕様書（Part 1�
 - `.steering/[YYYYMMDD]-[name].md` に仕様書（Part 1）を保存
 - フェーズゲート1の通過状況を報告
 
-## 他のコマンドとの連携
+## 他のスキルとの連携
 
 - 次のステップ: `/sdd-plan` - 仕様に基づく実装計画を作成
 - 実装: `/sdd-implement` - 計画に基づいて実装
 
 ## 注意事項
 
-- このコマンドではコードの変更は行わない（仕様書の作成のみ）
+- このスキルではコードの変更は行わない（仕様書の作成のみ）
 - 仕様は `.steering/` に保存され、計画フェーズで同じファイルに追記される
-

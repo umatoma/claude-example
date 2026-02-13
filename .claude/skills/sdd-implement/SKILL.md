@@ -1,8 +1,11 @@
 ---
-description: SDD実装実行。計画書（Part 1 + Part 2）に基づいてステップバイステップで実装を進めます。各フェーズ完了時に確認を求めます。
+name: sdd-implement
+description: SDD実装実行。計画書（Part 1 + Part 2）に基づいてステップバイステップで実装を進める。ユーザーが「実装を開始して」「SDDの実装フェーズに進みたい」「計画に基づいて実装して」と言った場合に使用する。
+disable-model-invocation: false
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash
 ---
 
-# SDD Implement コマンド
+# SDD Implement スキル
 
 仕様駆動開発（SDD）の最終ステップ。計画書に基づいて実装を行う。
 
@@ -106,7 +109,7 @@ description: SDD実装実行。計画書（Part 1 + Part 2）に基づいてス�
 - 計画書の進捗更新（チェックボックス、サマリー、ログ）
 - 最終レポート（全完了時）
 
-## 他のコマンドとの連携
+## 他のスキルとの連携
 
 - 前のステップ: `/sdd-plan` - 実装計画の作成
 - 仕様に戻る: `/sdd-specify` - 仕様の修正が必要な場合
@@ -115,4 +118,3 @@ description: SDD実装実行。計画書（Part 1 + Part 2）に基づいてス�
 
 - 計画にない変更は行わない
 - プロジェクト憲法を常に遵守する
-

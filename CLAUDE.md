@@ -20,9 +20,8 @@ project-root/
 ├── frontend/             # フロントエンド（未実装）
 ├── .claude/
 │   ├── rules/            # コーディング・テスト・バックエンド規約
-│   ├── commands/         # SDDワークフローコマンド
-│   ├── agents/           # 計画・実装エージェント定義
-│   └── skills/           # SDDスキル定義
+│   ├── agents/           # エージェント定義
+│   └── skills/           # SDD・設定管理スキル
 └── .steering/            # SDD計画文書
 ```
 
@@ -43,4 +42,6 @@ cd backend && npm run typecheck # 型チェック（tsc --noEmit）
 ## ワークフロー
 
 - SDD（スペック駆動開発）の計画文書は `.steering/` に配置する
-- ワークフローコマンド: `/sdd-specify`（仕様作成）→ `/sdd-plan`（計画作成）→ `/sdd-implement`（実装）
+- ワークフロースキル: `/sdd-specify`（仕様作成）→ `/sdd-plan`（計画作成）→ `/sdd-implement`（実装）
+- 仕様書作成: `/doc-spec`（コードからのリバース生成 / ユーザー構想からの新規作成）
+- 設定管理スキル: `/conf-claude`（CLAUDE.md管理）、`/conf-rules`（Rules管理）、`/conf-skills`（Skills管理）
